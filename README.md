@@ -1,21 +1,23 @@
 # Wikipedia Term
 
 Command Line tools for wikipedia written in python:
-Author Felix Schelling 16.01.2021
-License: MIT
+**Author** Felix Schelling 
+**Date** 16.01.2021
+**License:** MIT
+***
 
-Options:
-  -h, --help            show this help message and exit
-  -s SEARCH, --search=SEARCH
+**Options:**
+  - -h, --help            show this help message and exit
+  - -s SEARCH, --search=SEARCH
                         specify an search query if empty or not providen
                         random article is choosen
-  -p, --pdf             renders wikipage to pdf and opens pdf viewer
-  -f, --full            show initre content
-  -d, --deutsch         search and show in german
+  - -p, --pdf             renders wikipage to pdf and opens pdf viewer
+  - -f, --full            show initre content
+  - -d, --deutsch         search and show in german
 
-Dependcies:
-Python 3
-zatuha 
-pip:
-    wikipedia
-    pdfkit
+**Dependcies:**
+- Python 3
+- zatuha 
+- pip:
+  - wikipedia
+  - pdfkit
