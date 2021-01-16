@@ -1,6 +1,6 @@
 # Wikipedia Term
 
-Command Line tools for wikipedia written in python:
+Command Line tools for wikipedia written in python: <br>
 **Author** Felix Schelling <br>
 **Date** 16.01.2021  <br>
 **License:** MIT <br>
