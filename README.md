@@ -1,9 +1,9 @@
 # Wikipedia Term
 
 Command Line tools for wikipedia written in python:
-**Author** Felix Schelling 
-**Date** 16.01.2021
-**License:** MIT
+**Author** Felix Schelling <br>
+**Date** 16.01.2021  <br>
+**License:** MIT <br>
 ***
 
 **Options:**
