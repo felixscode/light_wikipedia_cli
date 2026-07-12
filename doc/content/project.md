@@ -42,5 +42,5 @@ light_wikipedia_cli/
 
 ## Machine-readable docs
 
-AI agents can read [`agents.txt`](/agents.txt) for a structured map of this
-documentation site, or [`llms.txt`](/llms.txt) for a project-level overview.
+AI agents can read [`agents.txt`](agents.txt) for a structured map of this
+documentation site, or [`llms.txt`](llms.txt) for a project-level overview.
