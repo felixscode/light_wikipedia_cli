@@ -100,7 +100,7 @@ func run(contentDir, outDir, siteName, skillPath, llmsPath, baseURL string) erro
 		if err != nil {
 			return fmt.Errorf("render %s: %w", path, err)
 		}
-		href := "/" + filepath.ToSlash(outRel)
+		href := filepath.ToSlash(outRel)
 		pages = append(pages, rendered{title: title, body: htmlBody, href: href, outRel: outRel})
 		return nil
 	})
@@ -119,7 +119,7 @@ func run(contentDir, outDir, siteName, skillPath, llmsPath, baseURL string) erro
 	}
 
 	for _, p := range pages {
-		if err := writePage(md, outDir, p.outRel, p.title, p.body, metas, p.href, p.href == "/index.html", siteName, baseURL); err != nil {
+		if err := writePage(md, outDir, p.outRel, p.title, p.body, metas, p.href, p.href == "index.html", siteName, baseURL); err != nil {
 			return err
 		}
 	}
@@ -189,9 +189,9 @@ func writeAgentsTxt(outDir, siteName string, metas []pageMeta) error {
 	fmt.Fprintf(&b, "[site]\n")
 	fmt.Fprintf(&b, "name: %s\n", siteName)
 	fmt.Fprintf(&b, "description: Lightweight documentation for the light_wikipedia_cli CLI and MCP server.\n")
-	fmt.Fprintf(&b, "generator: docgen (https://github.com/felixscode/light_wikipedia_cli)\n")
-	fmt.Fprintf(&b, "llms: /llms.txt\n")
-	fmt.Fprintf(&b, "skill: /SKILL.md\n\n")
+fmt.Fprintf(&b, "generator: docgen (https://github.com/felixschelling/light_wikipedia_cli)\n")
+	fmt.Fprintf(&b, "llms: llms.txt\n")
+	fmt.Fprintf(&b, "skill: SKILL.md\n\n")
 
 	fmt.Fprintf(&b, "[pages]\n")
 	for _, m := range metas {
@@ -247,9 +247,9 @@ func deriveTitle(path, src string) string {
 // writePage renders one page to disk using the site template.
 func writePage(md goldmark.Markdown, outDir, outRel, title, body string, metas []pageMeta, active string, isHome bool, siteName, baseURL string) error {
 	nav := make([]navItem, 0, len(metas)+1)
-	nav = append(nav, navItem{Title: "Home", Href: "/index.html"})
+	nav = append(nav, navItem{Title: "Home", Href: "index.html"})
 	for _, m := range metas {
-		if m.href == "/index.html" {
+		if m.href == "index.html" {
 			continue
 		}
 		nav = append(nav, navItem{Title: m.title, Href: m.href})
@@ -258,7 +258,7 @@ func writePage(md goldmark.Markdown, outDir, outRel, title, body string, metas [
 		Title:    title,
 		Content:  template.HTML(body),
 		Nav:      nav,
-		Active:   "/" + filepath.ToSlash(outRel),
+		Active:   filepath.ToSlash(outRel),
 		IsHome:   isHome,
 		Year:     time.Now().Year(),
 		SiteName: siteName,
@@ -309,13 +309,13 @@ footer { color:var(--muted); font-size:.85rem; padding:1.5rem 2rem; border-top:1
 </style>
 </head>
 <body>
-<header><a href="/index.html">{{ .SiteName }}</a></header>
+<header><a href="index.html">{{ .SiteName }}</a></header>
 <div class="layout">
 <nav><ul>
 {{ range .Nav }}<li><a href="{{ .Href }}"{{ if eq .Href $.Active }} class="active"{{ end }}>{{ .Title }}</a></li>
 {{ end }}</ul></nav>
 <main>
-{{ if not .IsHome }}<p><a href="/index.html">← Back to main</a></p>
+{{ if not .IsHome }}<p><a href="index.html">← Back to main</a></p>
 {{ end }}{{ .Content }}
 </main>
 </div>

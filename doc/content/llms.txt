@@ -4,11 +4,11 @@ Lightweight documentation site for the light_wikipedia_cli CLI and MCP server.
 
 ## Pages
 
-- [Home](/index.html) — overview and sections
-- [Getting started](/getting-started.html) — install and first run
-- [CLI usage](/cli.html) — flags and examples
-- [MCP server](/mcp.html) — configuration and tools
-- [Project](/project.html) — architecture and repository layout
+- [Home](index.html) — overview and sections
+- [Getting started](getting-started.html) — install and first run
+- [CLI usage](cli.html) — flags and examples
+- [MCP server](mcp.html) — configuration and tools
+- [Project](project.html) — architecture and repository layout
 
 ## Key facts
 
@@ -19,7 +19,7 @@ Lightweight documentation site for the light_wikipedia_cli CLI and MCP server.
 
 ## Skill
 
-The [SKILL.md](/SKILL.md) file contains a machine-readable skill for AI agents to scaffold and build this documentation site.
+The [SKILL.md](SKILL.md) file contains a machine-readable skill for AI agents to scaffold and build this documentation site.
 
 ## Key commands
 
