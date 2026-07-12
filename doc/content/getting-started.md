@@ -1,9 +1,14 @@
 # Getting started
 
+## Download 
+
+Head to the latest [Release](https://github.com/felixscode/light_wikipedia_cli/releases) and download the binary for your OS.
+
 ## Requirements
 
 - Go 1.26 or newer
 - Dependencies: `bubbletea`, `lipgloss`, `bubbles`, `goldmark`, `mcp-go`, `golang.org/x/net/html`
+
 
 ## Build
 
@@ -31,6 +36,9 @@ wikipedia --search "Go programming language"
 
 # Interactive TUI
 wikipedia --tui
+
+# Start the mcp server
+wikipedia --mcp 
 ```
 
 ## Building this documentation site

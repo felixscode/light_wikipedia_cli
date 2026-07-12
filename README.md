@@ -25,6 +25,23 @@ Ships as two binaries sharing one internal Wikimedia REST API client:
 - **`wikipedia`** — terminal CLI to search, read, and random-discover articles
 - **`wikipedia-mcp`** — [MCP](https://modelcontextprotocol.io) server over stdio for AI clients
 
+## About
+
+I started this repository in my early programming career. I wrote the CLI in pure Python using functional programming.
+I mainly used it with my bashrc to render a random Wikipedia article on terminal startup. Took me roughly a week to build after work.
+
+I stumbled across this project in 2026, and asked myself: can I rebuild this into a lightweight LLM-ready CLI in one prompt as cheap as possible?
+I used DeepSeek V4 Flash via OpenRouter on Opencode. First shot I got a working CLI and MCP server. I added a TUI in 2 more prompts. And this wiki on gh-pages in 3 more prompts. I landed the entire rewrite in 1.5h at $1.10 API cost.
+
+## Quickstart
+
+Download the latest release and make binaries executable:
+
+```sh
+chmod +x wikipedia
+wikipedia -r   # gets you a random article summary
+```
+
 ## Usage
 
 ```sh
@@ -45,15 +62,8 @@ wikipedia --tui                        # interactive TUI
 | `--mcp` | | Run as MCP server |
 | `--no-color` | | Disable ANSI colors |
 
-## Quickstart
 
-```sh
-git clone https://github.com/felixscode/light_wikipedia_cli
-cd light_wikipedia_cli
-make build
-```
-
-Requires Go 1.26+. Builds `bin/wikipedia` and `bin/wikipedia-mcp`.
+Requires Go 1.26+ to build. Builds `bin/wikipedia` and `bin/wikipedia-mcp`.
 
 ## MCP Server
 
@@ -67,23 +77,10 @@ Configure in your AI client (Claude Code, Copilot, Continue, etc.):
 }
 ```
 
-**Tools:** `wikipedia_search` · `wikipedia_get_page` · `wikipedia_get_summary` · `wikipedia_random` — all accept optional `lang` (default `en`).
-
 ## Documentation
 
-Full documentation is available at the [project site](https://felixscode.github.io/light_wikipedia_cli). Includes CLI reference, MCP setup, architecture notes, and a developer guide for AI agents.
+Documentation is available at the [project site](https://felixscode.github.io/light_wikipedia_cli). Includes CLI reference, MCP setup, architecture notes, and a developer guide for AI agents.
 
-## Development
-
-```sh
-make test       # all tests with race detector
-make test-e2e   # e2e tests (local mock server)
-make docs       # regenerate the documentation site
-```
-
-See [ARCH.md](./ARCH.md) for architecture and [AGENTS.md](./AGENTS.md) for the developer guide.
-
-> I started this project in my early programming career in functional Python. This rework was built for less than $1 on DeepSeek V4 Flash via OpenRouter with Opencode. It took me 1.5 hours.
 
 ## License
 

@@ -1,31 +1,51 @@
-# light_wikipedia_cli docs
+# light_wikipedia_cli
 
-Lightweight documentation site for the light_wikipedia_cli CLI and MCP server.
+Fast Wikipedia CLI + MCP server written in Go. Two binaries: `wikipedia` (terminal) and `wikipedia-mcp` (MCP server over stdio).
 
-## Pages
+## Docs
 
-- [Home](index.html) — overview and sections
-- [Getting started](getting-started.html) — install and first run
-- [CLI usage](cli.html) — flags and examples
-- [MCP server](mcp.html) — configuration and tools
-- [Project](project.html) — architecture and repository layout
+- [Getting started](doc/content/getting-started.md) — build and first run
+- [CLI usage](doc/content/cli.md) — flags and examples
+- [MCP server](doc/content/mcp.md) — wire into AI clients
+- [Project structure](doc/content/project.md) — architecture and layout
+- [Developer guide](AGENTS.md) — dev commands, conventions, testing
+- [Architecture](ARCH.md) — detailed design decisions and data flow
+- [Setup skill](SKILL.md) — skill for AI agents to set up this project
 
-## Key facts
-
-- Two binaries: `wikipedia` (CLI) and `wikipedia-mcp` (MCP server)
-- `wikipedia --tui` starts the interactive terminal UI
-- `wikipedia --mcp` starts the MCP server from the CLI binary
-- Flags: `--search`/`-s`, `--full`/`-f`, `--lang`/`-l`, `--random`/`-r`, `--tui`/`-t`, `--mcp`, `--no-color`, `--help`/`-h`
-
-## Skill
-
-The [SKILL.md](SKILL.md) file contains a machine-readable skill for AI agents to scaffold and build this documentation site.
-
-## Key commands
+## Build
 
 ```sh
-make build        # build both binaries to bin/
-make test         # run all tests
-make docs         # generate this site from doc/content/
-make serve        # serve at http://localhost:8000
+make build        # builds bin/wikipedia and bin/wikipedia-mcp
+make test         # all tests with race detector
+make docs         # generate static doc site (doc/public/)
 ```
+
+## CLI Flags
+
+| Flag | Description |
+|------|-------------|
+| `-s, --search` | Search query (default: random article) |
+| `-f, --full` | Show full article |
+| `-l, --lang` | Language code (default: en) |
+| `-r, --random` | Force random article |
+| `-t, --tui` | Start interactive TUI |
+| `--mcp` | Run as MCP server (stdio) |
+| `--no-color` | Disable ANSI colors |
+| `-h, --help` | Show help |
+
+## MCP Tools
+
+| Tool | Description |
+|------|-------------|
+| `wikipedia_search` | Search articles (query, limit, lang) |
+| `wikipedia_get_summary` | Article summary (title, lang) |
+| `wikipedia_get_page` | Full article content (title, lang) |
+| `wikipedia_random` | Random article (lang) |
+
+## Conventions
+
+- Stdlib `net/http` for API calls
+- `context.Context` as first arg in public methods
+- Errors wrapped with `fmt.Errorf("context: %w", err)`
+- Respect `NO_COLOR` env var
+- Tests use `net/http/httptest` (no real network)

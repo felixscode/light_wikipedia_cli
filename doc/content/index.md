@@ -5,16 +5,17 @@ assistants can read Wikipedia too.
 
 This site documents how to install, use, and develop the project.
 
-## Highlights
+## About
 
-- **Two binaries**: a terminal CLI (`wikipedia`) and an MCP server (`wikipedia-mcp`)
-- **Zero-config**: talks to the public Wikimedia REST API, no API key
-- **ANSI output** that respects `NO_COLOR`
-- **Self-contained**: stdlib `net/http` for the API client
+I started this repository in my early programming career. I wrote the CLI in pure Python using functional programming.
+I mainly used it with my bashrc to render a random Wikipedia article on terminal startup. Took me roughly a week to build after work.
+
+I stumbled across this project in 2026, and asked myself: can I rebuild this into a lightweight LLM-ready CLI in one prompt as cheap as possible?
+I used DeepSeek V4 Flash via OpenRouter on Opencode. First shot I got a working CLI and MCP server. I added a TUI in 2 more prompts. And this wiki on gh-pages in 3 more prompts. I landed the entire rewrite in 1.5h at $1.10 API cost.
 
 ## Sections
 
-- [Project](project.html) — what this project is and how it's structured
+- [Project](project.html) — what this project is and why it exists
 - [Getting started](getting-started.html) — install and first run
 - [CLI usage](cli.html) — flags and examples
 - [MCP server](mcp.html) — wire it into your AI client
