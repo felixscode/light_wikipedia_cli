@@ -1,19 +1,19 @@
 <div align="center">
 
 ```
-██╗     ██╗ ██████╗ ██╗  ██╗████████╗    ██╗    ██╗██╗██╗  ██╗██╗     ██████╗ ██╗     ██╗
+██╗     ██╗ ██████╗ ██╗  ██╗████████╗    ██╗    ██╗██╗██╗  ██╗██╗      ██████╗ ██╗     ██╗
 ██║     ██║██╔════╝ ██║  ██║╚══██╔══╝    ██║    ██║██║██║ ██╔╝██║    ██╔════╝ ██║     ██║
-██║     ██║██║  ███╗███████║   ██║       ██║ █╗ ██║██║█████╔╝ ██║    ██║  ███╗██║     ██║
-██║     ██║██║   ██║██╔══██║   ██║       ██║███╗██║██║██╔═██╗ ██║    ██║   ██║██║     ██║
-███████╗██║╚██████╔╝██║  ██║   ██║       ╚███╔███╔╝██║██║  ██╗██║    ╚██████╔╝███████╗██║
-╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝        ╚══╝╚══╝ ╚═╝╚═╝  ╚═╝╚═╝    ╚═════╝ ╚══════╝╚═╝
+██║     ██║██║  ███╗███████║   ██║       ██║ █╗ ██║██║█████╔╝ ██║    ██║      ██║     ██║
+██║     ██║██║   ██║██╔══██║   ██║       ██║███╗██║██║██╔═██╗ ██║    ██║      ██║     ██║
+███████╗██║╚██████╔╝██║  ██║   ██║       ╚███╔███╔╝██║██║  ██╗██║    ╚██████╗ ███████╗██║
+╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝        ╚══╝╚══╝ ╚═╝╚═╝  ╚═╝╚═╝     ╚═════╝ ╚══════╝╚═╝
 ```
-
-# light_wikipedia_cli
 
 [![Go Version](https://img.shields.io/badge/go-1.26.5-blue.svg)](https://go.dev/dl/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Go Report Card](https://goreportcard.com/badge/github.com/felixscode/light_wikipedia_cli)](https://goreportcard.com/report/github.com/felixscode/light_wikipedia_cli)
+[![golangci-lint](https://github.com/felixscode/light_wikipedia_cli/actions/workflows/golangci-lint.yml/badge.svg)](https://github.com/felixscode/light_wikipedia_cli/actions/workflows/golangci-lint.yml)
+[![Docs](https://img.shields.io/badge/docs-github_pages-blue.svg)](https://felixscode.github.io/light_wikipedia_cli)
 
 **A fast, lightweight Wikipedia client for the terminal — and an MCP server so AI assistants can read Wikipedia too.**
 
