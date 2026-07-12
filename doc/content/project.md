@@ -44,3 +44,5 @@ light_wikipedia_cli/
 
 AI agents can read [`agents.txt`](agents.txt) for a structured map of this
 documentation site, or [`llms.txt`](llms.txt) for a project-level overview.
+
+> I started this project in my early programming career in functional Python. This rework was built for less than $1 on DeepSeek V4 Flash via OpenRouter with Opencode. It took me 1.5 hours.

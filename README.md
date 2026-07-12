@@ -83,6 +83,8 @@ make docs       # regenerate the documentation site
 
 See [ARCH.md](./ARCH.md) for architecture and [AGENTS.md](./AGENTS.md) for the developer guide.
 
+> I started this project in my early programming career in functional Python. This rework was built for less than $1 on DeepSeek V4 Flash via OpenRouter with Opencode. It took me 1.5 hours.
+
 ## License
 
 MIT
