@@ -1,0 +1,28 @@
+# agents.txt
+# Machine-readable instructions for AI agents browsing this site.
+
+[site]
+name: light_wikipedia_cli docs
+description: Lightweight documentation for the light_wikipedia_cli CLI and MCP server.
+generator: docgen (https://github.com/felixschelling/light_wikipedia_cli)
+llms: llms.txt
+skill: SKILL.md
+
+[pages]
+- light_wikipedia_cli: index.html
+- Getting started: getting-started.html
+- CLI usage: cli.html
+- MCP server: mcp.html
+- Project: project.html
+
+[skills]
+name: setup-wiki
+description: Scaffold and build the static documentation site for this project from Markdown sources.
+trigger: When the user asks to set up, build, or regenerate the project wiki/docs site under /doc.
+steps:
+  1. Ensure Go 1.26+ is installed.
+  2. Add Markdown sources under doc/content/ (one .md file per page; the first H1 is the page title).
+  3. Run `make docs` to invoke cmd/docgen, which converts each .md to HTML in doc/public/ and writes llms.txt + agents.txt.
+  4. Serve doc/public/ with any static file server (e.g. `make serve` or `python3 -m http.server -d doc/public`).
+  5. The generated doc/public/ directory is gitignored; only doc/content/ is committed.
+notes: The site is fully static (no database or runtime server). Navigation is auto-generated from all pages.

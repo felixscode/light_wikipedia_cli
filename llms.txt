@@ -1,0 +1,31 @@
+# light_wikipedia_cli docs
+
+Lightweight documentation site for the light_wikipedia_cli CLI and MCP server.
+
+## Pages
+
+- [Home](index.html) — overview and sections
+- [Getting started](getting-started.html) — install and first run
+- [CLI usage](cli.html) — flags and examples
+- [MCP server](mcp.html) — configuration and tools
+- [Project](project.html) — architecture and repository layout
+
+## Key facts
+
+- Two binaries: `wikipedia` (CLI) and `wikipedia-mcp` (MCP server)
+- `wikipedia --tui` starts the interactive terminal UI
+- `wikipedia --mcp` starts the MCP server from the CLI binary
+- Flags: `--search`/`-s`, `--full`/`-f`, `--lang`/`-l`, `--random`/`-r`, `--tui`/`-t`, `--mcp`, `--no-color`, `--help`/`-h`
+
+## Skill
+
+The [SKILL.md](SKILL.md) file contains a machine-readable skill for AI agents to scaffold and build this documentation site.
+
+## Key commands
+
+```sh
+make build        # build both binaries to bin/
+make test         # run all tests
+make docs         # generate this site from doc/content/
+make serve        # serve at http://localhost:8000
+```
