@@ -13,11 +13,11 @@
 
 [![Go Version](https://img.shields.io/badge/go-1.26.5-blue.svg)](https://go.dev/dl/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Go Report Card](https://goreportcard.com/badge/github.com/felixschelling/light_wikipedia_cli)](https://goreportcard.com/report/github.com/felixschelling/light_wikipedia_cli)
+[![Go Report Card](https://goreportcard.com/badge/github.com/felixscode/light_wikipedia_cli)](https://goreportcard.com/report/github.com/felixscode/light_wikipedia_cli)
 
 **A fast, lightweight Wikipedia client for the terminal — and an MCP server so AI assistants can read Wikipedia too.**
 
-[Usage](#usage) | [Quickstart](#quickstart) | [MCP Server](#mcp-server) | [Docs](https://felixschelling.github.io/light_wikipedia_cli) | [Dev](#development)
+[Usage](#usage) | [Quickstart](#quickstart) | [MCP Server](#mcp-server) | [Docs](https://felixscode.github.io/light_wikipedia_cli) | [Dev](#development)
 
 </div>
 
@@ -49,7 +49,7 @@ wikipedia --tui                        # interactive TUI
 ## Quickstart
 
 ```sh
-git clone https://github.com/felixschelling/light_wikipedia_cli
+git clone https://github.com/felixscode/light_wikipedia_cli
 cd light_wikipedia_cli
 make build
 ```
@@ -72,7 +72,7 @@ Configure in your AI client (Claude Code, Copilot, Continue, etc.):
 
 ## Documentation
 
-Full documentation is available at the [project site](https://felixschelling.github.io/light_wikipedia_cli). Includes CLI reference, MCP setup, architecture notes, and a developer guide for AI agents.
+Full documentation is available at the [project site](https://felixscode.github.io/light_wikipedia_cli). Includes CLI reference, MCP setup, architecture notes, and a developer guide for AI agents.
 
 ## Development
 

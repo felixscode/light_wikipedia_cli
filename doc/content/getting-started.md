@@ -8,7 +8,7 @@
 ## Build
 
 ```sh
-git clone https://github.com/felixschelling/light_wikipedia_cli
+git clone https://github.com/felixscode/light_wikipedia_cli
 cd light_wikipedia_cli
 make build
 ```

@@ -16,7 +16,7 @@ REST API client for the Wikimedia REST API.
 ## Setup
 
 ```sh
-git clone https://github.com/felixschelling/light_wikipedia_cli
+git clone https://github.com/felixscode/light_wikipedia_cli
 cd light_wikipedia_cli
 make build          # builds bin/wikipedia and bin/wikipedia-mcp
 ```

@@ -187,7 +187,7 @@ func writeAgentsTxt(outDir, siteName string, metas []pageMeta) error {
 	fmt.Fprintf(&b, "[site]\n")
 	fmt.Fprintf(&b, "name: %s\n", siteName)
 	fmt.Fprintf(&b, "description: Lightweight documentation for the light_wikipedia_cli CLI and MCP server.\n")
-	fmt.Fprintf(&b, "generator: docgen (https://github.com/felixschelling/light_wikipedia_cli)\n")
+	fmt.Fprintf(&b, "generator: docgen (https://github.com/felixscode/light_wikipedia_cli)\n")
 	fmt.Fprintf(&b, "llms: /llms.txt\n")
 	fmt.Fprintf(&b, "skill: /SKILL.md\n\n")
 
