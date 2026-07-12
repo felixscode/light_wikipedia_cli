@@ -10,7 +10,7 @@ build: build-wikipedia build-mcp
 
 docs:
 	@mkdir -p $(BIN_DIR)
-	go run ./cmd/docgen -content doc/content -out doc/public -site "light_wikipedia_cli docs" -skill SKILL.md -llms doc/content/llms.txt
+	go run ./cmd/docgen -content doc/content -out doc/public -base /light_wikipedia_cli/ -site "light_wikipedia_cli docs" -skill SKILL.md -llms doc/content/llms.txt
 
 serve:
 	python3 -m http.server -d doc/public 8000

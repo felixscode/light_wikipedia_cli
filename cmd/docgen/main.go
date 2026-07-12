@@ -30,6 +30,7 @@ type page struct {
 	IsHome   bool
 	Year     int
 	SiteName string
+	BaseURL  string
 }
 
 // navItem is a single entry in the navigation sidebar.
@@ -50,15 +51,16 @@ func main() {
 	siteName := flag.String("site", "light_wikipedia_cli docs", "site name shown in the header")
 	skillPath := flag.String("skill", "", "optional path to a SKILL.md copied verbatim into the output")
 	llmsPath := flag.String("llms", "", "optional path to an llms.txt copied verbatim into the output")
+	baseURL := flag.String("base", "/", "base URL path for links (e.g. /repo-name/)")
 	flag.Parse()
 
-	if err := run(*contentDir, *outDir, *siteName, *skillPath, *llmsPath); err != nil {
+	if err := run(*contentDir, *outDir, *siteName, *skillPath, *llmsPath, *baseURL); err != nil {
 		fmt.Fprintf(os.Stderr, "docgen: %v\n", err)
 		os.Exit(1)
 	}
 }
 
-func run(contentDir, outDir, siteName, skillPath, llmsPath string) error {
+func run(contentDir, outDir, siteName, skillPath, llmsPath, baseURL string) error {
 	md := goldmark.New(
 		goldmark.WithExtensions(extension.GFM),
 		goldmark.WithRendererOptions(html.WithUnsafe()),
@@ -117,7 +119,7 @@ func run(contentDir, outDir, siteName, skillPath, llmsPath string) error {
 	}
 
 	for _, p := range pages {
-		if err := writePage(md, outDir, p.outRel, p.title, p.body, metas, p.href, p.href == "/index.html", siteName); err != nil {
+		if err := writePage(md, outDir, p.outRel, p.title, p.body, metas, p.href, p.href == "/index.html", siteName, baseURL); err != nil {
 			return err
 		}
 	}
@@ -243,7 +245,7 @@ func deriveTitle(path, src string) string {
 }
 
 // writePage renders one page to disk using the site template.
-func writePage(md goldmark.Markdown, outDir, outRel, title, body string, metas []pageMeta, active string, isHome bool, siteName string) error {
+func writePage(md goldmark.Markdown, outDir, outRel, title, body string, metas []pageMeta, active string, isHome bool, siteName, baseURL string) error {
 	nav := make([]navItem, 0, len(metas)+1)
 	nav = append(nav, navItem{Title: "Home", Href: "/index.html"})
 	for _, m := range metas {
@@ -260,6 +262,7 @@ func writePage(md goldmark.Markdown, outDir, outRel, title, body string, metas [
 		IsHome:   isHome,
 		Year:     time.Now().Year(),
 		SiteName: siteName,
+		BaseURL:  baseURL,
 	}
 	tmpl, err := template.New("page").Parse(pageTemplate)
 	if err != nil {
@@ -281,6 +284,7 @@ const pageTemplate = `<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="{{ .BaseURL }}">
 <title>{{ .Title }} — {{ .SiteName }}</title>
 <style>
 :root { --fg:#1a1a1a; --muted:#6b7280; --bg:#ffffff; --accent:#0ea5e9; --border:#e5e7eb; }
