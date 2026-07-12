@@ -566,14 +566,6 @@ func (m *model) searchActionsView() string {
 		Padding(1, 2).
 		Render(d.String())
 
-	dialogWidth := 40
-	if m.width > 40 {
-		dialogWidth = m.width / 3
-		if dialogWidth < 40 {
-			dialogWidth = 40
-		}
-	}
-
 	dialog = lipgloss.NewStyle().
 		Width(m.width - 4).
 		Align(lipgloss.Center).

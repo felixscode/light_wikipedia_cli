@@ -297,8 +297,9 @@ func StripHTML(s string) string {
 				default:
 					if strings.HasPrefix(entity.String(), "#") {
 						var code int
-						fmt.Sscanf(entity.String()[1:], "%d", &code)
-						out.WriteRune(rune(code))
+						if _, err := fmt.Sscanf(entity.String()[1:], "%d", &code); err == nil {
+							out.WriteRune(rune(code))
+						}
 					}
 				}
 			} else {

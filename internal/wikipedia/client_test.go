@@ -125,7 +125,7 @@ func TestSearchNonJSONError(t *testing.T) {
 	srv := newTestServer(routeMap{
 		"/w/api.php": func(w http.ResponseWriter, r *http.Request) {
 			w.WriteHeader(http.StatusInternalServerError)
-			w.Write([]byte("internal error"))
+			_, _ = w.Write([]byte("internal error"))
 		},
 	})
 	defer srv.Close()
@@ -197,7 +197,7 @@ func TestGetPage(t *testing.T) {
 		},
 		"/api/rest_v1/page/html/Go": func(w http.ResponseWriter, r *http.Request) {
 			w.Header().Set("Content-Type", "text/html")
-			w.Write([]byte(htmlContent))
+			_, _ = w.Write([]byte(htmlContent))
 		},
 	})
 	defer srv.Close()
@@ -416,7 +416,7 @@ func testClient(srvURL string) *Client {
 
 func writeJSON(w http.ResponseWriter, v any) {
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(v)
+	_ = json.NewEncoder(w).Encode(v)
 }
 
 func searchResultsJSON(results []SearchResult) any {
